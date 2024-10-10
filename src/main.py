@@ -1,5 +1,6 @@
 import sys
 import re
+import os
 from logger import logging
 from exception import customException
 from strategy_generator import StrategyGenerator
@@ -25,8 +26,8 @@ def generate_post_plan(post_plan_generator : StrategyGenerator, days: int):
             posts.append({
                 "day": day,
                 "topic": topic,
-                "caption" : re.sub(r"\*\*.*?\*\*\s*:?\s*", "", post.split("\n\n")[0]),
-                "img_description" : re.sub(r"\*\*.*?\*\*\s*:?\s*", "", post.split("\n\n")[1])
+                "caption" : re.sub(r"\*\*.*?\*\*\s*:?\s*", "", post.split("\n\n")[0]), # parse caption from post
+                "img_description" : re.sub(r"\*\*.*?\*\*\s*:?\s*", "", post.split("\n\n")[1]) # parse image description from post
             })
 
         logging.info("Post plan generated successfully")
@@ -46,7 +47,7 @@ def main():
         theme = input("Choose theme [AI & ML, Business Automation, Data Science]: ")
         summary = input("Enter a brief summary of the post content: ")
         days = int(input("Enter the number of days for the post plan: "))
-        post_time = input("Enter the time to post the content in HH:MM format (eg. 15:30 for 3:30 PM): ")
+        post_time = input("Enter the time to post the content in HH:MM format (eg. 15:30 for 3:30 PM): ")        
 
         # Initialize PostPlanGenerator
         post_plan_generator = StrategyGenerator(domain, platform, theme, summary)
@@ -56,8 +57,12 @@ def main():
 
         
         posts_output_dir = "artifacts"
+        image_output_dir = "artifacts/images"
         output_file_name = "post_plan.json"
 
+        if not os.path.exists(image_output_dir):
+            os.makedirs(image_output_dir)
+            
         # Save the plan to a file
         save_post_plan(posts=posts, output_dir=posts_output_dir, output_file_name=output_file_name)
 

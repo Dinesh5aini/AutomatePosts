@@ -7,7 +7,7 @@ from exception import customException
 
 class StrategyGenerator:
     
-    def __init__(self, domain, platform, theme="AI & ML", summary="generate by yourself"):
+    def __init__(self, domain, platform, theme="AI & ML", summary="Informative content"):
         try:
             load_dotenv()  # Load OpenAI API key from environment variables
             openai.api_key = os.getenv("OPENAI_API_KEY")

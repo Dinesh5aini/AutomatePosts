@@ -6,7 +6,7 @@ import requests
 from logger import logging
 from dotenv import load_dotenv
 from exception import customException
-from datetime import datetime, timedelta
+# from datetime import datetime, timedelta
 from image_generator import ImageGenerator
 
 
@@ -14,6 +14,7 @@ class InstagramPost:
     def __init__(self):
         try:
             load_dotenv()
+            # Get Instagram access token and Facebook page ID from environment variables
             self.user_access_token = os.getenv('INSTAGRAM_ACCESS_TOKEN')
             self.fb_page_id = os.getenv('FACEBOOK_PAGE_ID')
             self.posts_queue = []
@@ -28,7 +29,7 @@ class InstagramPost:
             response = requests.get(url)
             data = response.json()
             if data and "instagram_business_account" in data:
-                ig_user_id = data["instagram_business_account"]["id"]
+                ig_user_id = data["instagram_business_account"]["id"] # Instagram Business Account ID
                 page_access_token = self.user_access_token  
                 return page_access_token, ig_user_id
             else:
@@ -41,6 +42,7 @@ class InstagramPost:
 
     def upload_media(self, ig_user_id, image_url, caption, page_access_token):
         try:
+            # Upload media to Instagram container using Instagram Business Account ID and Page Access Token
             url = f"https://graph.facebook.com/v20.0/{ig_user_id}/media"
             params = {
                 "caption": caption,
@@ -61,6 +63,7 @@ class InstagramPost:
 
     def publish_post(self, ig_user_id, ig_container_id, page_access_token):
         try:
+            # Publish the Instagram post container 
             publish_url = f"https://graph.facebook.com/v20.0/{ig_user_id}/media_publish"
             publish_params = {
                 "creation_id": ig_container_id,
@@ -79,6 +82,7 @@ class InstagramPost:
             raise customException(e, sys)
 
     def add_post_to_queue(self, img_description, caption):
+        # Add post to the queue
         self.posts_queue.append({"img_description": img_description, "caption": caption})
 
     # def schedule_posts(self):
