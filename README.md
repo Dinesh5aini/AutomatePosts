@@ -59,7 +59,7 @@ AutomatePosts is a project designed to automate the generation and scheduling of
         source apenv/bin/activate
         ```
 
-3. Install the dependencies by running [setup.py](http://_vscodecontentref_/#%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22c%3A%5C%5CUsers%5C%5Cdines%5C%5COneDrive%5C%5CDesktop%5C%5CBTH%20internship%5C%5CProjects%5C%5CAutomatePosts%5C%5Csetup.py%22%2C%22_sep%22%3A1%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fdines%2FOneDrive%2FDesktop%2FBTH%20internship%2FProjects%2FAutomatePosts%2Fsetup.py%22%2C%22scheme%22%3A%22file%22%7D%7D):
+3. Install the dependencies by running [setup.py](#):
     ```sh
     python setup.py install
     ```
