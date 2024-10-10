@@ -16,45 +16,7 @@ AutomatePosts is a project designed to automate the generation and scheduling of
     cd AutomatePosts
     ```
 
-2. **Install the required dependencies:**
-    ```sh
-    pip install -r requirements.txt
-    ```
-
-3. **Meta for Developers:**
-    1. Go to [Meta for Developers](https://developers.facebook.com/).
-    2. Create a new app.
-
-4. **Graph API Explorer:**
-    1. Go to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
-    2. Get a user access token with the following permissions:
-        - `pages_show_list`
-        - `ads_management`
-        - `business_management`
-        - `instagram_basic`
-        - `instagram_manage_comments`
-        - `instagram_manage_insights`
-        - `instagram_content_publish`
-        - `pages_read_engagement`
-
-5. **Environment Variables:**
-    1. Add the user access token to the `.env` file:
-        ```env
-        INSTAGRAM_ACCESS_TOKEN=your_user_access_token_here
-        ```
-
-    2. Get the Facebook Page ID for the page connected with the user access token. You can find the page access token in the page's "About" section under "Page Transparency".
-    3. Add the Facebook Page ID to the [.env]() file:
-        ```env
-        FACEBOOK_PAGE_ID=your_facebook_page_id_here
-        ```
-
-    4. Add your OpenAI API key to the [.env]() file:
-        ```env
-        OPENAI_API_KEY=your_openai_api_key_here
-        ```
-
-6. **Virtual Environment and Dependencies:**
+2. **Virtual Environment and Dependencies:**
     1. Create a virtual environment:
         ```sh
         python -m venv apenv
@@ -70,9 +32,42 @@ AutomatePosts is a project designed to automate the generation and scheduling of
             source apenv/bin/activate
             ```
 
-    3. Install the dependencies by running [setup.py]():
-        ```sh
-        python setup.py install
+3. **Install the required dependencies:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. **Meta for Developers:**
+    1. Go to [Meta for Developers](https://developers.facebook.com/).
+    2. Create a new app.
+
+5. **Graph API Explorer:**
+    1. Go to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
+    2. Get a user access token with the following permissions:
+        - `pages_show_list`
+        - `ads_management`
+        - `business_management`
+        - `instagram_basic`
+        - `instagram_manage_comments`
+        - `instagram_manage_insights`
+        - `instagram_content_publish`
+        - `pages_read_engagement`
+
+6. **Environment Variables:**
+    1. Add the user access token to the `.env` file:
+        ```env
+        INSTAGRAM_ACCESS_TOKEN=your_user_access_token_here
+        ```
+
+    2. Get the Facebook Page ID for the page connected with the user access token. You can find the page access token in the page's "About" section under "Page Transparency".
+    3. Add the Facebook Page ID to the [.env]() file:
+        ```env
+        FACEBOOK_PAGE_ID=your_facebook_page_id_here
+        ```
+
+    4. Add your OpenAI API key to the [.env]() file:
+        ```env
+        OPENAI_API_KEY=your_openai_api_key_here
         ```
 
 ## Usage
